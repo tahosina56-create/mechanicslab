@@ -10,33 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CadRouteImport } from './routes/cad'
+import { Route as CalculatorRouteImport } from './routes/calculator'
+import { Route as ChallengeRouteImport } from './routes/challenge'
+import { Route as MachineDesignRouteImport } from './routes/machine-design'
+import { Route as TutorRouteImport } from './routes/tutor'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CadRoute = CadRouteImport.update({
+  id: '/cad',
+  path: '/cad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalculatorRoute = CalculatorRouteImport.update({
+  id: '/calculator',
+  path: '/calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChallengeRoute = ChallengeRouteImport.update({
+  id: '/challenge',
+  path: '/challenge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MachineDesignRoute = MachineDesignRouteImport.update({
+  id: '/machine-design',
+  path: '/machine-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TutorRoute = TutorRouteImport.update({
+  id: '/tutor',
+  path: '/tutor',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cad': typeof CadRoute
+  '/calculator': typeof CalculatorRoute
+  '/challenge': typeof ChallengeRoute
+  '/machine-design': typeof MachineDesignRoute
+  '/tutor': typeof TutorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cad': typeof CadRoute
+  '/calculator': typeof CalculatorRoute
+  '/challenge': typeof ChallengeRoute
+  '/machine-design': typeof MachineDesignRoute
+  '/tutor': typeof TutorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cad': typeof CadRoute
+  '/calculator': typeof CalculatorRoute
+  '/challenge': typeof ChallengeRoute
+  '/machine-design': typeof MachineDesignRoute
+  '/tutor': typeof TutorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/cad' | '/calculator' | '/challenge' | '/machine-design' | '/tutor'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/cad' | '/calculator' | '/challenge' | '/machine-design' | '/tutor'
+  id:
+    | '__root__'
+    | '/'
+    | '/cad'
+    | '/calculator'
+    | '/challenge'
+    | '/machine-design'
+    | '/tutor'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CadRoute: typeof CadRoute
+  CalculatorRoute: typeof CalculatorRoute
+  ChallengeRoute: typeof ChallengeRoute
+  MachineDesignRoute: typeof MachineDesignRoute
+  TutorRoute: typeof TutorRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +106,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cad': {
+      id: '/cad'
+      path: '/cad'
+      fullPath: '/cad'
+      preLoaderRoute: typeof CadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calculator': {
+      id: '/calculator'
+      path: '/calculator'
+      fullPath: '/calculator'
+      preLoaderRoute: typeof CalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/challenge': {
+      id: '/challenge'
+      path: '/challenge'
+      fullPath: '/challenge'
+      preLoaderRoute: typeof ChallengeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/machine-design': {
+      id: '/machine-design'
+      path: '/machine-design'
+      fullPath: '/machine-design'
+      preLoaderRoute: typeof MachineDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tutor': {
+      id: '/tutor'
+      path: '/tutor'
+      fullPath: '/tutor'
+      preLoaderRoute: typeof TutorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CadRoute: CadRoute,
+  CalculatorRoute: CalculatorRoute,
+  ChallengeRoute: ChallengeRoute,
+  MachineDesignRoute: MachineDesignRoute,
+  TutorRoute: TutorRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

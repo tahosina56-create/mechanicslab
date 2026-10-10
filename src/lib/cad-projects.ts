@@ -1,5 +1,6 @@
 export type Param = { key: string; label: string; unit: string; value: number; min: number; max: number; step: number };
-export type Step = { title: string; tool: string; detail: (p: Record<string, number>) => string; checks: string[] };
+export type Step = { title: string; tool: string; // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  detail: (p: any) => string; checks: string[] };
 export type CadProject = { id: string; title: string; summary: string; level: string; params: Param[]; steps: Step[] };
 
 export const cadProjects: CadProject[] = [

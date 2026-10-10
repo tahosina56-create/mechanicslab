@@ -40,31 +40,31 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.135 0.018 345);
-  --foreground: oklch(0.97 0.012 345);
-  --surface: oklch(0.18 0.025 345);
-  --card: oklch(0.19 0.028 345);
-  --card-foreground: oklch(0.97 0.012 345);
-  --popover: oklch(0.205 0.032 345);
-  --popover-foreground: oklch(0.97 0.012 345);
-  --primary: oklch(0.72 0.2 350);
-  --primary-foreground: oklch(0.14 0.025 345);
-  --secondary: oklch(0.235 0.035 345);
-  --secondary-foreground: oklch(0.94 0.016 345);
-  --muted: oklch(0.225 0.025 345);
-  --muted-foreground: oklch(0.72 0.035 345);
-  --accent: oklch(0.27 0.07 350);
-  --accent-foreground: oklch(0.9 0.065 350);
+  --background: oklch(0.13 0.02 210);
+  --foreground: oklch(0.97 0.012 200);
+  --surface: oklch(0.17 0.028 210);
+  --card: oklch(0.19 0.03 210);
+  --card-foreground: oklch(0.97 0.012 200);
+  --popover: oklch(0.205 0.032 210);
+  --popover-foreground: oklch(0.97 0.012 200);
+  --primary: oklch(0.76 0.16 62);
+  --primary-foreground: oklch(0.14 0.03 40);
+  --secondary: oklch(0.235 0.03 210);
+  --secondary-foreground: oklch(0.94 0.016 200);
+  --muted: oklch(0.225 0.025 210);
+  --muted-foreground: oklch(0.73 0.03 200);
+  --accent: oklch(0.28 0.055 195);
+  --accent-foreground: oklch(0.88 0.09 190);
   --destructive: oklch(0.68 0.2 25);
   --destructive-foreground: oklch(0.98 0 0);
   --success: oklch(0.76 0.13 160);
   --warning: oklch(0.82 0.14 80);
-  --border: oklch(0.34 0.055 345);
-  --input: oklch(0.37 0.06 345);
-  --ring: oklch(0.72 0.2 350);
-  --grid: oklch(0.72 0.2 350 / 5%);
-  --glow: 0 0 0 1px oklch(0.72 0.2 350 / 28%), 0 18px 50px -20px oklch(0.72 0.2 350 / 48%);
-  --shadow-panel: 0 24px 70px -42px oklch(0.02 0.02 345 / 90%);
+  --border: oklch(0.34 0.045 210);
+  --input: oklch(0.37 0.05 210);
+  --ring: oklch(0.76 0.16 62);
+  --grid: oklch(0.8 0.09 195 / 6%);
+  --glow: 0 0 0 1px oklch(0.76 0.16 62 / 28%), 0 18px 50px -20px oklch(0.76 0.16 62 / 48%);
+  --shadow-panel: 0 24px 70px -42px oklch(0.02 0.02 210 / 90%);
 }
 
 @layer base {

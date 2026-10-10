@@ -30,6 +30,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background bg-blueprint">
+      <WelcomeOverlay />
       <header className="sticky top-0 z-40 border-b border-border/80 bg-background/85 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
           <Logo />

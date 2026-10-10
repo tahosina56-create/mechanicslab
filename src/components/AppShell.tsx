@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X, Cog } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WelcomeOverlay } from "@/components/WelcomeOverlay";
 
 const nav = [
   { to: "/", label: "Dashboard" },

@@ -38,10 +38,10 @@ function Viewer({ project, onBack }: { project: CadProject; onBack: () => void }
   const [vals, setVals] = useState<Record<string, number>>(initial);
   const [idx, setIdx] = useState(0);
   const [done, setDone] = useState<Record<string, boolean>>({});
-  const step = project.steps[idx];
+  const step = project.steps[idx]!;
   const total = project.steps.reduce((s, st) => s + st.checks.length, 0);
   const ticked = Object.values(done).filter(Boolean).length;
-  const stepDone = (i: number) => project.steps[i].checks.every((_, c) => done[`${i}-${c}`]);
+  const stepDone = (i: number) => project.steps[i]!.checks.every((_, c) => done[`${i}-${c}`]);
 
   return (
     <div className="space-y-4">

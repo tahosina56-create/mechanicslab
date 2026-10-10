@@ -1,11 +1,11 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { ArrowLeft, ArrowRight, Check, ChevronRight, RotateCcw, Box } from "lucide-react";
 import { AppShell, PageHeader } from "@/components/AppShell";
 import { Button } from "@/components/ui/button";
 import { cadProjects, type CadProject } from "@/lib/cad-projects";
 import { cn } from "@/lib/utils";
 
-export function CadAssistant() {
+export function CadAssistant({ extra }: { extra?: ReactNode }) {
   const [active, setActive] = useState<CadProject | null>(null);
   return (
     <AppShell>
@@ -29,6 +29,7 @@ export function CadAssistant() {
           ))}
         </div>
       )}
+      {extra && <div className="mt-8">{extra}</div>}
     </AppShell>
   );
 }

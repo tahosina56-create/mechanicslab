@@ -15,6 +15,7 @@ import { Route as CalculatorRouteImport } from './routes/calculator'
 import { Route as ChallengeRouteImport } from './routes/challenge'
 import { Route as MachineDesignRouteImport } from './routes/machine-design'
 import { Route as TutorRouteImport } from './routes/tutor'
+import { Route as ApiCadChatRouteImport } from './routes/api/cad-chat'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const TutorRoute = TutorRouteImport.update({
   path: '/tutor',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiCadChatRoute = ApiCadChatRouteImport.update({
+  id: '/api/cad-chat',
+  path: '/api/cad-chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/challenge': typeof ChallengeRoute
   '/machine-design': typeof MachineDesignRoute
   '/tutor': typeof TutorRoute
+  '/api/cad-chat': typeof ApiCadChatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/challenge': typeof ChallengeRoute
   '/machine-design': typeof MachineDesignRoute
   '/tutor': typeof TutorRoute
+  '/api/cad-chat': typeof ApiCadChatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,13 +79,27 @@ export interface FileRoutesById {
   '/challenge': typeof ChallengeRoute
   '/machine-design': typeof MachineDesignRoute
   '/tutor': typeof TutorRoute
+  '/api/cad-chat': typeof ApiCadChatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/cad' | '/calculator' | '/challenge' | '/machine-design' | '/tutor'
+    | '/'
+    | '/cad'
+    | '/calculator'
+    | '/challenge'
+    | '/machine-design'
+    | '/tutor'
+    | '/api/cad-chat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cad' | '/calculator' | '/challenge' | '/machine-design' | '/tutor'
+  to:
+    | '/'
+    | '/cad'
+    | '/calculator'
+    | '/challenge'
+    | '/machine-design'
+    | '/tutor'
+    | '/api/cad-chat'
   id:
     | '__root__'
     | '/'
@@ -86,6 +108,7 @@ export interface FileRouteTypes {
     | '/challenge'
     | '/machine-design'
     | '/tutor'
+    | '/api/cad-chat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -95,6 +118,7 @@ export interface RootRouteChildren {
   ChallengeRoute: typeof ChallengeRoute
   MachineDesignRoute: typeof MachineDesignRoute
   TutorRoute: typeof TutorRoute
+  ApiCadChatRoute: typeof ApiCadChatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -141,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TutorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/cad-chat': {
+      id: '/api/cad-chat'
+      path: '/api/cad-chat'
+      fullPath: '/api/cad-chat'
+      preLoaderRoute: typeof ApiCadChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -151,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChallengeRoute: ChallengeRoute,
   MachineDesignRoute: MachineDesignRoute,
   TutorRoute: TutorRoute,
+  ApiCadChatRoute: ApiCadChatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

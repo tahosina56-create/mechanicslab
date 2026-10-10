@@ -11,7 +11,7 @@ function check(fields: Record<string, number>, positive: string[] = []): string 
     if (!isNum(v)) return `${k} must be a valid number.`;
   }
   for (const k of positive) {
-    if (fields[k] <= 0) return `${k} must be greater than zero.`;
+    if ((fields[k] ?? 0) <= 0) return `${k} must be greater than zero.`;
   }
   return null;
 }

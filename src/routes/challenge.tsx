@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { AppShell, PageHeader } from "@/components/AppShell";
 import { fmt, rpmToRadS, torque } from "@/lib/engineering";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/challenge")({
   head: () => ({
@@ -10,6 +11,8 @@ export const Route = createFileRoute("/challenge")({
       { name: "description", content: "Solve a shaft torque problem and get instant feedback with the full method." },
       { property: "og:title", content: "Engineering Challenge — MechMind Lab" },
       { property: "og:description", content: "Test yourself on a real-world shaft torque problem." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ChallengePage,
@@ -38,8 +41,8 @@ function ChallengePage() {
           <label className="text-sm text-muted-foreground">Your answer (N·m)</label>
           <div className="mt-2 flex gap-2">
             <input value={val} onChange={(e) => setVal(e.target.value)} inputMode="decimal"
-              className="flex-1 rounded-lg border border-input bg-background px-3 py-2.5 font-mono outline-none focus:border-primary" />
-            <button className="rounded-lg bg-primary px-5 text-sm font-semibold text-primary-foreground">Submit</button>
+              className="min-w-0 flex-1 rounded-lg border border-input bg-background/80 px-3 py-2.5 font-mono outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15" />
+            <Button type="submit" className="h-auto px-5 font-semibold shadow-[var(--glow)]">Submit</Button>
           </div>
           {state && (
             <p className={`mt-4 text-sm ${state === "ok" ? "text-success" : state === "close" ? "text-warning" : "text-destructive"}`}>
@@ -51,7 +54,7 @@ function ChallengePage() {
           )}
         </form>
         {state && state !== "invalid" && (
-          <div className="panel p-6 font-mono text-sm animate-in fade-in">
+          <div className="panel border-primary/25 p-6 font-mono text-sm animate-in fade-in">
             <p className="font-sans font-semibold">Method</p>
             <p className="mt-3 text-muted-foreground">1. ω = 2πN / 60 = 2π × {N} / 60 = {fmt(rpmToRadS(N))} rad/s</p>
             <p className="mt-2 text-muted-foreground">2. T = P / ω = {P} / {fmt(rpmToRadS(N))}</p>

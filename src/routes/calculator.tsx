@@ -3,6 +3,7 @@ import { useState } from "react";
 import { AppShell, PageHeader } from "@/components/AppShell";
 import { CalcCard, Field } from "@/components/CalcCard";
 import { convertSpeed, fmt, gear, normalStress, rpmToRadS, torque } from "@/lib/engineering";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/calculator")({
   head: () => ({
@@ -11,6 +12,8 @@ export const Route = createFileRoute("/calculator")({
       { name: "description", content: "Torque, speed conversion, gear ratio and normal stress calculators with step-by-step substitution." },
       { property: "og:title", content: "Engineering Calculator — MechMind Lab" },
       { property: "og:description", content: "Step-by-step torque, gear and stress calculations for engineering students." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: CalculatorPage,
@@ -59,12 +62,12 @@ function CalculatorPage() {
           <Field label="Value" unit={from} value={sv} onChange={setSv} />
           <label className="block">
             <span className="mb-1.5 block text-xs font-medium text-muted-foreground">Convert from</span>
-            <div className="grid grid-cols-2 gap-1 rounded-lg border border-input bg-background p-1">
+            <div className="grid grid-cols-2 gap-1 rounded-lg border border-input bg-background/80 p-1">
               {(["rpm", "rad/s"] as const).map((u) => (
-                <button type="button" key={u} onClick={() => setFrom(u)}
-                  className={`rounded-md py-1.5 font-mono text-xs ${from === u ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>
+                <Button type="button" key={u} onClick={() => setFrom(u)} variant={from === u ? "default" : "ghost"} size="sm"
+                  className="h-8 font-mono text-xs">
                   {u}
-                </button>
+                </Button>
               ))}
             </div>
           </label>

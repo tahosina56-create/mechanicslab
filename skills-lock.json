@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "pruna": {
+      "source": "PrunaAI/pruna-skills",
+      "sourceType": "github",
+      "skillPath": "skills/suite/pruna/SKILL.md",
+      "computedHash": "c5f322095ac657d1e6fec2090310b0a98c466e878063ca92abcebc3477e9e911"
+    }
+  }
+}
